@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>El Clima en Tu Ciudad</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">El Clima en Tu Ciudad</h1>
+
+        {% if weather_data %}
+            <div class="weather-info">
+                <p><span class="label">Temperatura:</span> <span class="value">{{ weather_data.temperature }} °</span></p>
+                <p><span class="label">Cielo:</span> <span class="value">{{ weather_data.description }}</span></p>
+                <p><span class="label">Humedad:</span> <span class="value">{{ weather_data.humidity }} %</span></p>
+                <p><span class="label">Velocidad del viento:</span> <span class="value">{{ weather_data.wind_speed }} kmph</span></p>
+            </div>
+        {% else %}
+            <p class="no-data">No weather data available.</p>
+        {% endif %}
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
